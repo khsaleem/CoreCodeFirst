@@ -1,0 +1,93 @@
+﻿@model IEnumerable<coreRepo.Models.CaseVM>
+@*@model IEnumerable<System.Linq.IGrouping<object, coreRepo.Models.CaseVM>>*@
+
+
+
+
+    @{
+        ViewData["Title"] = "Privacy Policy";
+    }
+    <h2>@ViewData["Title"]</h2>
+
+    <p>Use this page to detail your site's privacy policy.</p>
+
+    <table class="table">
+    @foreach (var item in Model)
+    {
+        <tr>
+        <td>
+
+        </td>
+        </tr>
+    }
+    </table>
+    @*
+        @foreach (var item in (IEnumerable<dynamic>)ViewBag.caseList)
+        {
+            //Console.WriteLine(item.Year);
+            <tr>
+                <td>
+
+
+                    if (item.Year != null)
+                    {
+                    @item.Year
+                    }
+                </td>
+            </tr>
+
+            @foreach (var agency in @item.Agencies)
+            {
+                //Console.WriteLine(agency.Agency + " Number Cases:" + agency.Total + " Number Attorneys:" + agency.Attorneys.Count());
+                <tr>
+                    <td>
+
+
+                        @agency.Agency
+                    </td>
+                </tr>
+                @foreach (var attorney in @agency.Attorneys)
+                {
+                    //Console.WriteLine(attorney.Attorney + " Number Cases: " + attorney.Total);
+
+                    <tr>
+                        <td>
+
+
+                            @attorney.Attorney
+                        </td>
+                    </tr>
+
+                    @foreach (var cases in @attorney.Cases)
+                    {
+                        //Console.WriteLine("Case #" + cases.CaseNumber);
+                        <tr>
+                            <td>
+
+
+                                @cases.CaseNumber
+                            </td>
+                        </tr>
+                    }
+                }
+
+            }
+*@
+                }
+    </table>
+
+@*
+    @Html.Display(item.Year)
+*@
+
+@*
+    @Html.Display(agency.Agency + " Number Cases:" + agency.Total + " Number Attorneys:" + agency.Attorneys.Count())
+*@
+
+@*
+    @Html.Display(attorney.Attorney + " Number Cases: " + attorney.Total)
+*@
+
+@*
+    @Html.Display("Case #" + cases.CaseNumber)
+*@
